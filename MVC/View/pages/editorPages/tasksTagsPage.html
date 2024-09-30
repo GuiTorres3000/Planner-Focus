@@ -1,0 +1,31 @@
+<div class="container">
+    <!--Título e Icone-->
+    <div class="titlepage" style="font-size: 24px;">
+        <i class="bi bi-clipboard"></i>
+        <span><strong>Tarefas</strong></span>
+        <span><small> Tarefas Personalizadas</small></span>
+    </div>
+    <hr> <!--Divisória-->
+
+    <!--Formulário-->
+    <form id="taskTagForm" class="text-center">
+        <div class="col-3">
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-card-checklist"></i></span>
+                <!-- Campo do Formulário para Categoria -->
+                <select id="selectTag" name="selectTag" class="form-select form-select-lg fs-6">
+                    <option selected>Selecionar Etiqueta</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <hr> <!--Divisória-->
+
+    <!--Tabela-->
+    <div id="list" class="container text-right">
+        <div class="row">
+        </div>
+    </div>
+
+</div>
+<script src="./pages/editorPages/tasksTagsPageScripts.js"></script>

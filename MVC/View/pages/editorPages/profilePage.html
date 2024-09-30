@@ -1,0 +1,93 @@
+<div class="container">
+    <!--Título e Icone-->
+    <div class="titlepage" style="font-size: 24px;">
+        <i class="bi bi-person-circle"></i>
+        <span><strong>Editar Perfil</strong></span>
+        <span style="font-size: 18px; margin-left: 20px;">Modifique seus dados.</span>
+    </div>
+    <hr> <!--Divisória-->
+    
+    <div class="user-profile">
+        <div class="profile-left">
+            <img id="profile-picture" src="./assets/userTemplate.png" alt="User">
+            <p id="profile-username"></p>
+            <p id="profile-email"></p>
+
+            <hr style="margin: 0.01rem 0; padding-bottom: 5px;">
+
+            <form id="profilePictureForm" enctype="multipart/form-data">
+                <label for="picture">Adicionar Foto de Perfil: </label>
+                <input type="file" id="profilePicture" name="profilePicture" accept=".jpeg, .jpg, .png"  required
+                class="form-control"  style="font-size: 13px;">
+                <small style="font-size: 80%; padding-right: 5px; padding-left: 5px;">Apenas JPEG, JPG e PNG.</small>
+                
+                <button type="submit" id="profilePictureButton" class="btn btn-lg btn-primary btn-gradient btn-sm" style="margin-top: 10px;">Atualizar Foto de Perfil</button>
+            </form>
+        </div>
+        <div class="profile-right">
+            <div style="font-size: 20px;">
+                <i class="bi bi-person-fill-gear"></i>
+                <span><strong>Editar Perfil</strong></span>
+            </div>
+            <hr style="margin: 0.2rem 0; padding-bottom: 20px;">
+                <div style="margin-left: 30px;">
+                <form id="profileUsernameForm">
+                    <!--Inputs-->
+                    <label for="username">Novo Nome do Perfil:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person-lines-fill"></i></span>
+                        <!--Campo do Formulário-->
+                        <input type="text" id="profileUsername" name="profileUsername"
+                    class="form-control form-control-sm" placeholder="Insira seu nome de Usuário" maxlength="30"/>
+                    </div>
+                    <button type="submit" id="profileUsernameButton" class="btn btn-lg btn-primary btn-gradient btn-sm" style="margin-top: 8px;">Renomear Perfil</button>
+                    <small id="warningUsername" style="margin-left: 30px; color: limegreen; opacity: 0; transition: opacity 2s;"></small>
+                </form>
+                <br>
+                <form id="profilePasswordForm">
+                    <label for="oldpassword">Senha Atual:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-key"></i></span>
+                        <input type="password" id="oldpassword" name="oldpassword"
+                        class="form-control form-control-sm" placeholder="Confirme sua Senha Atual" maxlength="30"/>
+                    </div>
+
+                    <label for="newpassword">Nova Senha:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                        <input type="password" id="newpassword" name="newpassword"
+                        class="form-control form-control-sm" placeholder="Insira sua Nova Senha" maxlength="30"/>
+                    </div>
+
+                    <label for="passwordrepeat">Confirmação da Senha:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span>
+                        <input type="password" id="passwordrepeat" name="passwordrepeat"
+                        class="form-control form-control-sm" placeholder="Confirme sua Nova Senha" maxlength="30"/>
+                    </div>
+                    <div style="margin-top: 10px;">
+                    <button type="submit" id="profilePasswordButton" class="btn btn-lg btn-primary btn-gradient btn-sm">Alterar Senha</button>
+                    <small id="warningPassword" style="margin-left: 30px; color: limegreen; opacity: 0; transition: opacity 2s;"></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <form action="" method="POST" enctype="multipart/form-data">
+        <label for="imagem">Escolha uma imagem:</label>
+        <input type="file" name="imagem" id="imagem" accept="image/*" required>
+        <input type="submit" value="Enviar Imagem">
+    </form>
+
+    
+    <form enctype="multipart/form-data" action="__URL__" method="POST">
+        <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
+        Enviar esse arquivo: <input name="picture" type="file"/>
+        <input type="submit" value="Enviar arquivo" />
+    </form>
+    -->
+</div>
+<link rel="stylesheet" href="./pages/editorPages/profilePageStyle.css">
+<script src="./pages/editorPages/profilePageScripts.js"></script>

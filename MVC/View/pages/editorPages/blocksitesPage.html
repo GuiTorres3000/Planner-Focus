@@ -1,0 +1,44 @@
+<div class="container">
+    <!--Título e Icone-->
+    <div class="titlepage" style="font-size: 24px;">
+        <i class="bi bi-window-x"></i>
+        <span><strong>Lista de Bloqueio</strong></span>
+        <span><small> Yeii, crie a sua, é legal</small></span>
+    </div>
+    <hr> <!--Divisória-->
+
+    <!--Formulário-->
+    <form id="blocksiteForm" class="text-center">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-file-earmark-lock"></i></span>
+                    <!--Campo do Formulário-->
+                    <input type="text" id="url" name="url" class="form-control form-control-lg fs-6" placeholder="Insira o link de uma página" maxlength="75">
+                  </div>
+            </div>
+            <div class="col-3">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-card-checklist"></i></span>
+                    <!-- Campo do Formulário para Categoria -->
+                    <select id="selectCategory" name="selectCategory" class="form-select form-select-lg fs-6">
+                        <option selected>Selecionar Categoria</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <button type="submit" id="insertBlocksiteButton" class="btn btn-lg btn-primary btn-gradient fs-6">Adicionar Site<i class="bi bi-plus-lg"></i></button>
+            </div>
+        </div>
+    </form>
+
+    <hr> <!--Divisória-->
+
+    <!--Tabela-->
+    <div id="list" class="container text-right">
+        <div class="row">
+        </div>
+    </div>
+
+</div>
+<script src="./pages/editorPages/blocksitesPageScripts.js"></script>

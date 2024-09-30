@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40400%3B500&display=swap%27%29%3B');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #3b5fe2;
+    background: linear-gradient(90deg, rgb(67, 52, 185) 25%, rgb(30, 143, 255) 100%);
+    background-image: url("../../assets/bg3.jpg");
+    background-size: 100% auto;
+    border-bottom: 1px ridge white;
+    overflow: hidden;
+}
+
+/*---- Conteúdo da Topbar ----*/
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+#username{
+  margin-right: 10px;
+}
+
+#picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/*---- Conteúdo da Página ----*/
+.btn-brush{
+  background-color: #fbfbfa60;
+  border-color: white;
+  color:black;
+  transition: all 0.2s ease;
+}
+
+.btn-brush:hover{
+  background-color: #ffffff90;
+  border-color: white;
+  color:black;
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
+
+/*--Conteúdo do Login--*/
+.box-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff70;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o conteúdo */
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transform-origin: center center; /* Define o ponto de origem no centro */
+}
+
+.box-wrapper:hover {
+  transform: translate(-50%, -50%) scale(0.95); /* Reduz a escala do centro */
+}
+
+.area {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  text-align: left;
+}
+
+.title-icon {
+  display: flex;
+  width: 100%;
+  font-size: 60px;
+  align-items: center;
+  pointer-events: none;
+}
+
+.title-icon i{
+  font-size: 50px;
+  height: 80px;
+  margin-right: 20px;
+}

@@ -1,0 +1,79 @@
+.user-profile {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin-top: 20px; /* Adicione margem superior para espaço */
+    margin-left: 15%;
+  
+    padding: 15px;
+    padding-top: 20px;
+    background-color: #00000008;
+    border: 1px solid #00000025;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #00000025;
+    max-width: 72%;
+  }
+  
+  /* Estilos para a seção da esquerda (imagem de perfil e nome) */
+  .profile-left {
+    background-color: #FAFAFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000025;
+    position: relative;
+    overflow: hidden;
+    max-height: 95%;
+    height: 470px;
+    border: #00000025 solid 1px;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    margin-right: 2%;
+    width: 30%;
+  }
+  
+  /* Estilos para a seção da direita (formulário de edição) */
+  .profile-right {
+    background-color: #FAFAFF;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #00000025;
+    position: relative;
+    overflow: hidden;
+    max-height: 95%;
+    height: 470px;
+    width: 70%;
+    border: #00000025 solid 1px;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  #profile-picture{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: #00000025 solid 2px; /* Cor da borda da imagem */
+  }
+  
+  #profile-username {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  #profile-email {
+    font-size: 16px;
+  }
+  
+  #user-profile label {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .form-control {
+    background-color: #FAFAFF;
+    max-width: 450px;
+    margin-right: 40px;
+  }
+  
+  .form-control:focus {
+    border-color: #008CFF /* Cor da borda quando o campo está focado */
+  }

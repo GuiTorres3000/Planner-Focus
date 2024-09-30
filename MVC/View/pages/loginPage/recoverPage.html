@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Conectando com o Bootstrap-->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <!--Conectando com o Bootstrap Icons-->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <!--Conectando com o Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Conectando com o AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!--Estilos-->
+    <link href="loginPageStyle.css" rel="stylesheet">
+    <title>Planner Focus</title>
+</head>
+<body>
+    <!--Imagens vetoriais do login-->
+    <img src="../../assets/shape.png" alt="Imagem de Login" class="login-imagebg" />
+    <img src="../../assets/loginVetor.svg" alt="Imagem de Login" class="login-image" />
+
+    <div class="container" id="container">
+        
+        <!--Logar/Entrar-->
+        <div class="form-container sign-in-container">
+            <form id="formRecover" method="post">
+                <div>
+                    <i class="bi bi-person-lock" style="font-size: 40px;"></i>
+                    <span style="font-size: 32px;"> <strong>Redefinir Senha</strong></span>
+                </div>
+                <h7>Insira sua nova Senha</h7>
+                
+                <input type="password" id="passwordRecover" name="passwordRecover"
+                 class="form-control form-control-lg fs-6" placeholder="Insira seu Email" maxlength="30"/>
+                
+                 <input type="password" id="passwordRecoverRepeat" name="passwordRecoverRepeat"
+                 class="form-control form-control-lg fs-6" placeholder="Insira seu Email" maxlength="30"/>
+
+                <button type="submit" id="formRecoverButton" class="btn-gradient">Redefinir</button>
+            </form>
+            <small id="warningLogin" style="color: red; margin-top: -80px; position: absolute; text-align: center; opacity: 0; transition: opacity 2s;"></small>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <!--Painel Planner Focus - Login Ativo-->
+                <div class="overlay-panel overlay-right">
+                    <div>
+                        <i class="bi bi-calendar2-x" style="font-size: 32px;"></i>
+                        <span style="font-size: 32px;"><strong> Planner Focus</strong></span>
+                    </div>
+                    <h7>Desbloqueie sua produtividade enquanto bloqueia as distrações. Bem-vindo!</h7>
+                    <br>
+                    <h7>Não possui uma conta?</h7>
+                    <small id="warningRegister" style="color: red; opacity: 0; transition: opacity 2s;"></small>
+                    <button class="ghost">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="loginPageScripts.js"></script>

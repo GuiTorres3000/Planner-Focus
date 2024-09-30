@@ -1,0 +1,30 @@
+<style>
+.main-content{
+  overflow: hidden;
+}
+</style>
+
+<div class="container" style="margin-top: -2.6rem">
+    <!--Título e Icone-->
+    <div id='calendar'></div>
+</div>
+
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventModalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="eventModalStart"></p>
+        <p id="eventModalDescription"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./pages/editorPages/calendarPageScripts.js"></script>

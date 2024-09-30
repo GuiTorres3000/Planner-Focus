@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Conectando com o Bootstrap-->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Conectando com o Bootstrap Icons-->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+    <!--Conectando com o Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--Conectando com o AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!--Conectando com o Full Calendar-->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.9/index.global.min.js'></script>
+    <!--Estilos-->
+    <link rel="stylesheet" href="stylePage.css">
+    <title>Planner Focus</title>
+    <link rel="icon" href="./assets/plannerfocusLogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/plannerfocusLogo.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- -----Menu Superior----- -->
+    <div class="topbar">
+        <div class="user-info">
+            <a href="#" data-page="./pages/editorPages/profilePage.html">
+                <span id="username"></span>
+                <img id="picture" src="./assets/userTemplate.png" alt="User">
+            </a>
+        </div>
+    </div>
+    <!-- -----Menu Lateral----- -->
+        <div class="sidebar">
+            <!-- -----Topo do Menu----- -->
+            <div class="top">
+                <div class="logo">
+                    <img id="logo" src="/plannerfocus/MVC/View/assets/plannerfocus_logo_white.png" alt="Logo">
+                    <span><strong>Planner Focus</strong></span>
+                </div>
+                <i class="bi bi-list" id="btn"></i> 
+            </div>
+            <!-- -----Itens do Menu----- -->
+            <div class="items">
+                <ul>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/homePage.html">
+                            <i class="bi bi-house"></i>
+                            <span class="nav-item">Página Inicial</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/tasksPage.html">
+                            <i class="bi bi-clipboard-plus"></i>
+                            <span class="nav-item">Tarefas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/tagsPage.html">
+                            <i class="bi bi-tags"></i>
+                            <span class="nav-item">Etiquetas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/tasksTagsPage.html">
+                            <i class="bi bi-clipboard-data"></i>
+                            <span class="nav-item">Filtrar por Etiquetas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/calendarPage.html">
+                            <i class="bi bi-calendar-check"></i>
+                            <span class="nav-item">Calendário</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/categoriesPage.html">
+                            <i class="bi bi-bookmarks"></i>
+                            <span class="nav-item">Categorias</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="./pages/editorPages/blocksitesPage.html">
+                            <i class="bi bi-window-x"></i>
+                            <span class="nav-item">Lista de Bloqueio</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- -----Icone de Saida do Menu----- -->
+                <div class="logout">
+                <ul>
+                    <li>
+                        <a href="/plannerfocus/MVC/Controller/userController.class.php?command=logout">
+                            <i class="bi bi-box-arrow-left"></i></i>
+                            <span class="nav-item">Logout</span>
+                        </a>            
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    <!-- -----  Conteúdo  ----- -->
+        <div class="main-content">
+            <div id="content"></div>
+        </div>
+
+</body>
+<script>
+    // Detectar se o usuario está conectado
+    $.get('/plannerfocus/MVC/Controller/Traits/session.php').fail(function(http){
+        if (http.status != 200){
+           document.location = '/';
+        }
+    });
+
+    // Função para exibir nome e foto
+    $(document).ready(function() {
+        $.ajax({
+            type: 'GET',
+            url: '/plannerfocus/MVC/Controller/userController.class.php?command=getOne',
+            dataType: 'json',
+            success: function(data) {
+                if (data.username) {
+                    $('#username').text(data.username);
+                }
+                if (data.picture) {
+                    $('#picture').attr('src', data.picture);
+                }
+            },
+            error: function() {
+                console.error("Usuario não encontrado");
+            }
+        });
+    });
+
+    // Função para abrir e fechar o Menu
+    $(document).ready(function() {
+        $('#btn').click(function() {
+            $('.sidebar').toggleClass('active');
+            $('body').toggleClass('active');
+        });
+    });
+    
+
+    // Função para trocar de página
+    $(document).ready(function() {
+        function loadPage(pageUrl) {
+            // Faz uma requisição Ajax para carregar a página
+            $.ajax({
+                url: pageUrl,
+                type: 'GET',
+                dataType: 'html',
+                success: function(data) {
+                    // Atualiza o conteúdo da página com o HTML carregado
+                    $('#content').html(data);
+                },
+                error: function() {
+                    alert('Erro ao carregar a página');
+                }
+            });
+        }
+
+        // Intercepta o clique nos links da navegação
+        $('.items ul li a, .user-info a').click(function(e) {
+            e.preventDefault();
+            var pageUrl = $(this).data('page');
+            loadPage(pageUrl);
+        });
+
+        // Carrega a home page automaticamente ao carregar a página
+        var initialPageUrl = "./pages/editorPages/homePage.html";
+        loadPage(initialPageUrl);
+    });
+</script>
+</html>
+
+
